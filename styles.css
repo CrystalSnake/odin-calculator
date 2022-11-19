@@ -21,6 +21,15 @@ h1 {
   height: 80px;
   background-color: rgb(175, 175, 175);
   margin: auto;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#print {
+  font-size: 2em;
+  margin: 0;
+  padding-right: 5%;
 }
 
 .keyboard {
@@ -44,10 +53,11 @@ button {
   height: 50px;
   margin: 1%;
   border: none;
-  border-radius: 20%;
+  border-radius: 15px;
+  font-size: 1.5em;
 }
 
-.clear {
+#clear {
   background-color: rgb(212, 50, 10);
 }
 
