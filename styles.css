@@ -1,0 +1,56 @@
+h1 {
+  text-align: center;
+}
+
+.calculator {
+  width: 50%;
+  margin: auto;
+  background-color: grey;
+  border-radius: 5%;
+}
+
+.display {
+  height: 120px;
+  background-color: lightgrey;
+  display: flex;
+  align-items: center;
+}
+
+.screen {
+  width: 80%;
+  height: 80px;
+  background-color: rgb(175, 175, 175);
+  margin: auto;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  margin: auto;
+}
+
+.top-line {
+  display: flex;
+  width: 100%;
+}
+
+button {
+  width: 23%;
+  height: 50px;
+  margin: 1%;
+  border: none;
+  border-radius: 20%;
+}
+
+.clear {
+  background-color: rgb(212, 50, 10);
+}
+
+.operand {
+  background-color: rgb(46, 141, 230);
+}

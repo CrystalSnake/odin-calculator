@@ -29,5 +29,3 @@ const operate = function (firstOp, operator, secondOp) {
       console.log(divide(firstOp, secondOp));
   }
 };
-
-operate(5, '*', 6);
