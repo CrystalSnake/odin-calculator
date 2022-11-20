@@ -96,8 +96,10 @@ const printKeyValue = function () {
     screen.textContent = displayValue;
   });
   dot.addEventListener('click', () => {
-    displayValue += '.';
-    screen.textContent = displayValue;
+    if (!displayValue.includes('.')) {
+      displayValue += '.';
+      screen.textContent = displayValue;
+    }
   });
 
   const calculate = function () {
@@ -106,7 +108,7 @@ const printKeyValue = function () {
     } else {
       secondOp = +displayValue;
       if (secondOp) {
-        result = operate(firstOp, operator, secondOp);
+        result = operate(firstOp, operator, secondOp).toFixed(2);
         screen.textContent = result;
         firstOp = result;
         secondOp = '';
