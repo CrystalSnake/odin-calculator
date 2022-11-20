@@ -108,7 +108,7 @@ const printKeyValue = function () {
     } else {
       secondOp = +displayValue;
       if (secondOp) {
-        result = operate(firstOp, operator, secondOp).toFixed(2);
+        result = +operate(firstOp, operator, secondOp).toFixed(2);
         screen.textContent = result;
         firstOp = result;
         secondOp = '';
