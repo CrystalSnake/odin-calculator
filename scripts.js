@@ -99,13 +99,11 @@ const printKeyValue = function () {
     screen.textContent = displayValue;
   });
 
-  plus.addEventListener('click', () => {
+  const calculate = function () {
     if (firstOp === undefined) {
       firstOp = +displayValue;
-      console.log(`first ${firstOp}`);
     } else {
       secondOp = +displayValue;
-      console.log(`second ${secondOp}`);
       if (secondOp) {
         result = operate(firstOp, operator, secondOp);
         screen.textContent = result;
@@ -113,38 +111,27 @@ const printKeyValue = function () {
         secondOp = '';
       }
     }
-    operator = '+';
     displayValue = '';
+  };
+
+  plus.addEventListener('click', () => {
+    calculate();
+    operator = '+';
   });
 
   minus.addEventListener('click', () => {
-    if (firstOp === undefined) {
-      firstOp = +displayValue;
-      console.log(`first ${firstOp}`);
-    } else {
-      secondOp = +displayValue;
-      console.log(`second ${secondOp}`);
-      if (secondOp) {
-        result = operate(firstOp, operator, secondOp);
-        screen.textContent = result;
-        firstOp = result;
-        secondOp = '';
-      }
-    }
+    calculate();
     operator = '-';
-    displayValue = '';
   });
 
   timesSign.addEventListener('click', () => {
-    screen.textContent += 'x';
-    firstOp = +displayValue;
-    console.log(firstOp);
+    calculate();
+    operator = '*';
   });
 
   division.addEventListener('click', () => {
-    screen.textContent += '/';
-    firstOp = +displayValue;
-    console.log(firstOp);
+    calculate();
+    operator = '/';
   });
 
   clear.addEventListener('click', () => {
