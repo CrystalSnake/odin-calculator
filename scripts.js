@@ -47,6 +47,7 @@ const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const timesSign = document.getElementById('times-sign');
 const division = document.getElementById('division');
+const equal = document.getElementById('equal');
 const clear = document.getElementById('clear');
 
 const screen = document.getElementById('print');
@@ -132,6 +133,10 @@ const printKeyValue = function () {
   division.addEventListener('click', () => {
     calculate();
     operator = '/';
+  });
+
+  equal.addEventListener('click', () => {
+    calculate();
   });
 
   clear.addEventListener('click', () => {
