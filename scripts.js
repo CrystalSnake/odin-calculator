@@ -107,11 +107,17 @@ const printKeyValue = function () {
       firstOp = +displayValue;
     } else {
       secondOp = +displayValue;
-      if (secondOp) {
-        result = +operate(firstOp, operator, secondOp).toFixed(2);
-        screen.textContent = result;
-        firstOp = result;
-        secondOp = '';
+      if (secondOp != undefined) {
+        if (operator === '/' && secondOp === 0) {
+          screen.textContent = 'ERROR';
+          firstOp = '';
+          secondOp = '';
+        } else {
+          result = +operate(firstOp, operator, secondOp).toFixed(2);
+          screen.textContent = result;
+          firstOp = result;
+          secondOp = '';
+        }
       }
     }
     displayValue = '';
