@@ -1,6 +1,5 @@
 let firstOp;
 let secondOp;
-let operand;
 let result;
 
 const add = function (firstOp, secondOp) {
@@ -58,11 +57,13 @@ let displayValue = '';
 
 const printKeyValue = function () {
   zero.addEventListener('click', () => {
-    displayValue = '0';
-    screen.textContent += displayValue;
+    displayValue += '0';
+    console.log(displayValue);
+    screen.textContent = displayValue;
   });
   one.addEventListener('click', () => {
     displayValue += '1';
+    console.log(displayValue);
     screen.textContent = displayValue;
   });
   two.addEventListener('click', () => {
@@ -101,8 +102,8 @@ const printKeyValue = function () {
     displayValue += '.';
     screen.textContent = displayValue;
   });
+
   plus.addEventListener('click', () => {
-    //operand = '+';
     if (firstOp === undefined) {
       firstOp = +displayValue;
       console.log(`first ${firstOp}`);
@@ -120,21 +121,38 @@ const printKeyValue = function () {
     }
     displayValue = '';
   });
+
   minus.addEventListener('click', () => {
-    screen.textContent += '-';
-    firstOp = +displayValue;
-    console.log(firstOp);
+    if (firstOp === undefined) {
+      firstOp = +displayValue;
+      console.log(`first ${firstOp}`);
+    } else {
+      secondOp = +displayValue;
+      console.log(`second ${secondOp}`);
+      if (secondOp) {
+        result = subtract(firstOp, secondOp);
+        console.log(result);
+        displayValue = result;
+        screen.textContent = displayValue;
+        firstOp = result;
+        secondOp = '';
+      }
+    }
+    displayValue = '';
   });
+
   timesSign.addEventListener('click', () => {
     screen.textContent += 'x';
     firstOp = +displayValue;
     console.log(firstOp);
   });
+
   division.addEventListener('click', () => {
     screen.textContent += '/';
     firstOp = +displayValue;
     console.log(firstOp);
   });
+
   clear.addEventListener('click', () => {
     displayValue = '';
     screen.textContent = displayValue;
