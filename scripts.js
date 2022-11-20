@@ -1,6 +1,7 @@
 let firstOp;
 let secondOp;
 let result;
+let operator;
 
 const add = function (firstOp, secondOp) {
   return firstOp + secondOp;
@@ -21,16 +22,13 @@ const divide = function (firstOp, secondOp) {
 const operate = function (firstOp, operator, secondOp) {
   switch (operator) {
     case '+':
-      console.log(add(firstOp, secondOp));
-      break;
+      return add(firstOp, secondOp);
     case '-':
-      console.log(subtract(firstOp, secondOp));
-      break;
+      return subtract(firstOp, secondOp);
     case '*':
-      console.log(multiply(firstOp, secondOp));
-      break;
+      return multiply(firstOp, secondOp);
     case '/':
-      console.log(divide(firstOp, secondOp));
+      return divide(firstOp, secondOp);
   }
 };
 
@@ -58,12 +56,10 @@ let displayValue = '';
 const printKeyValue = function () {
   zero.addEventListener('click', () => {
     displayValue += '0';
-    console.log(displayValue);
     screen.textContent = displayValue;
   });
   one.addEventListener('click', () => {
     displayValue += '1';
-    console.log(displayValue);
     screen.textContent = displayValue;
   });
   two.addEventListener('click', () => {
@@ -111,14 +107,13 @@ const printKeyValue = function () {
       secondOp = +displayValue;
       console.log(`second ${secondOp}`);
       if (secondOp) {
-        result = add(firstOp, secondOp);
-        console.log(result);
-        displayValue = result;
-        screen.textContent = displayValue;
+        result = operate(firstOp, operator, secondOp);
+        screen.textContent = result;
         firstOp = result;
         secondOp = '';
       }
     }
+    operator = '+';
     displayValue = '';
   });
 
@@ -130,14 +125,13 @@ const printKeyValue = function () {
       secondOp = +displayValue;
       console.log(`second ${secondOp}`);
       if (secondOp) {
-        result = subtract(firstOp, secondOp);
-        console.log(result);
-        displayValue = result;
-        screen.textContent = displayValue;
+        result = operate(firstOp, operator, secondOp);
+        screen.textContent = result;
         firstOp = result;
         secondOp = '';
       }
     }
+    operator = '-';
     displayValue = '';
   });
 
@@ -156,6 +150,8 @@ const printKeyValue = function () {
   clear.addEventListener('click', () => {
     displayValue = '';
     screen.textContent = displayValue;
+    firstOp = undefined;
+    secondOp = undefined;
   });
 };
 
