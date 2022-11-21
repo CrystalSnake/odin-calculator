@@ -186,7 +186,7 @@ const printKeyValue = function () {
   const deleteLast = function (operand) {
     let operString = operand.toString();
     if (operString.length === 1) {
-      operand = 0;
+      operString = '0';
     } else {
       operString = operString.slice(0, operString.length - 1);
     }
