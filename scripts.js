@@ -92,12 +92,18 @@ const numberKeyHandler = function (num) {
 
 const operatorKeyHandler = function (oper) {
   if (firstOp === undefined && oper === '-') {
-    firstOp = '-';
-    displayValue = '-';
+    firstOp = oper;
+    displayValue = oper;
     screen.textContent = displayValue;
   } else if (firstOp && secondOp === undefined) {
-    operator = oper;
-    displayValue = '';
+    if ((operator === '*' || operator === '/') && oper === '-') {
+      secondOp = oper;
+      displayValue = oper;
+      screen.textContent = displayValue;
+    } else {
+      operator = oper;
+      displayValue = '';
+    }
   } else {
     if (operator === '/' && secondOp === 0) {
       screen.textContent = 'ERROR';
