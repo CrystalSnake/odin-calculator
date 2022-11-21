@@ -33,6 +33,16 @@ main {
   max-width: 640px;
 }
 
+@media screen and (max-width: 850px) {
+  .calculator {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
 .display {
   height: 160px;
   background-color: #5b6078;
