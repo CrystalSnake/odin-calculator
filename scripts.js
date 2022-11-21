@@ -69,7 +69,20 @@ const calculate = function () {
   secondOp = undefined;
 };
 
-const numberKeyHandler = function () {
+const numberKeyHandler = function (num) {
+  if (num != '.' && displayValue === '0') {
+    displayValue = num;
+  } else if (num === '0' && (displayValue === '' || displayValue != '0')) {
+    displayValue += num;
+  } else if (num === '.' && !displayValue.includes('.')) {
+    console.log('test');
+    displayValue += '.';
+  } else if (num != '.') {
+    displayValue += num;
+  }
+
+  screen.textContent = displayValue;
+
   if (operator === undefined) {
     firstOp = +displayValue;
   } else {
@@ -111,63 +124,37 @@ const equalKeyHandler = function () {
 
 const printKeyValue = function () {
   zero.addEventListener('click', () => {
-    if (displayValue === '' || displayValue != '0') {
-      displayValue += '0';
-      screen.textContent = displayValue;
-      numberKeyHandler();
-    }
+    numberKeyHandler('0');
   });
   one.addEventListener('click', () => {
-    displayValue += '1';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('1');
   });
   two.addEventListener('click', () => {
-    displayValue += '2';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('2');
   });
   three.addEventListener('click', () => {
-    displayValue += '3';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('3');
   });
   four.addEventListener('click', () => {
-    displayValue += '4';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('4');
   });
   five.addEventListener('click', () => {
-    displayValue += '5';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('5');
   });
   six.addEventListener('click', () => {
-    displayValue += '6';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('6');
   });
   seven.addEventListener('click', () => {
-    displayValue += '7';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('7');
   });
   eight.addEventListener('click', () => {
-    displayValue += '8';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('8');
   });
   nine.addEventListener('click', () => {
-    displayValue += '9';
-    screen.textContent = displayValue;
-    numberKeyHandler();
+    numberKeyHandler('9');
   });
   dot.addEventListener('click', () => {
-    if (!displayValue.includes('.')) {
-      displayValue += '.';
-      screen.textContent = displayValue;
-      numberKeyHandler();
-    }
+    numberKeyHandler('.');
   });
 
   plus.addEventListener('click', () => {
