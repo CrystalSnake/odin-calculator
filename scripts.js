@@ -49,6 +49,7 @@ const timesSign = document.getElementById('times-sign');
 const division = document.getElementById('division');
 const equal = document.getElementById('equal');
 const clear = document.getElementById('clear');
+const backspace = document.getElementById('backspace');
 
 const screen = document.getElementById('print');
 
@@ -75,7 +76,6 @@ const numberKeyHandler = function (num) {
   } else if (num === '0' && (displayValue === '' || displayValue != '0')) {
     displayValue += num;
   } else if (num === '.' && !displayValue.includes('.')) {
-    console.log('test');
     displayValue += '.';
   } else if (num != '.') {
     displayValue += num;
@@ -181,6 +181,26 @@ const printKeyValue = function () {
     displayValue = '0';
     screen.textContent = displayValue;
     clearAll();
+  });
+
+  const deleteLast = function (operand) {
+    let operString = operand.toString();
+    if (operString.length === 1) {
+      operand = 0;
+    } else {
+      operString = operString.slice(0, operString.length - 1);
+    }
+    displayValue = operString;
+    screen.textContent = displayValue;
+    return +operString;
+  };
+
+  backspace.addEventListener('click', () => {
+    if (firstOp && !secondOp) {
+      firstOp = deleteLast(firstOp);
+    } else if (firstOp && secondOp) {
+      secondOp = deleteLast(secondOp);
+    }
   });
 };
 

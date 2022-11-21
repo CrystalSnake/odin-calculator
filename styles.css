@@ -71,6 +71,7 @@ main {
 .top-line {
   display: flex;
   width: 100%;
+  justify-content: space-between;
 }
 
 button {
@@ -94,7 +95,8 @@ button:active {
   transition: ease 0.2s;
 }
 
-#clear {
+#clear,
+#backspace {
   background-color: #ed8796;
 }
 
